@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active:
+      - dev
+---
+server:
+  port: 7030
+spring:
+  profiles: dev
+  application:
+    name: configServer
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:yanjun-sui/test-config.git
+---
+server:
+  port: 7040
+spring:
+  profiles: run
+  application:
+    name: configServer-run
+---
+server:
+  port: 7050
+spring:
+  profiles: test
+  application:
+    name: configServer-test
