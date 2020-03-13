@@ -28,3 +28,25 @@ spring:
   profiles: test
   application:
     name: configServer-test
+
+	server:
+  port: 8080
+spring:
+  profiles: dev
+  application:
+    name: dept-consumer
+eureka:
+  instance:
+    instance-id: consumer-8080
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7011/eureka,http://127.0.0.1:7012/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+info:
+  name: consumer
